@@ -1,18 +1,21 @@
-# Template Extension Specification
+# Anonymized Location Extension Specification
 
-- **Title:** Template
-- **Identifier:** <https://stac-extensions.github.io/template/v1.0.0/schema.json>
-- **Field Name Prefix:** template
+- **Title:** Anonymized Location
+- **Identifier:** <https://stac-extensions.github.io/anonymized-location/v1.0.0/schema.json>
+- **Field Name Prefix:** anon
 - **Scope:** Item, Collection
 - **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
-- **Owner**: @your-gh-handles @person2
+- **Owner**: @kbgg @duckontheweb
 
-This document explains the Template Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
-This is the place to add a short introduction.
+This document explains the Anonymized Location Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
+Some imagery can not be shared with precise location information either due to provider requirements or for privacy concerns.
+In these cases, the imagery can be assigned to a bounding box contained in a grid of arbritrary size.
+Larger bounding boxes are more anonymized but the usefulness of the data diminishes as the bounding box grows.
+To allow for the size of this bounding box to match the privacy and usefulness requirements of the data, a precision property can be defined.
 
 - Examples:
-  - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
-  - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection
+  - [Item example](examples/su_african_crops/su_african_crops_labels/su_african_crops_labels_ghana_000000.json): Shows the basic usage of the extension in a STAC Item
+  - [Collection example](examples/su_african_crops/su_african_crops_source/collection.json): Shows the basic usage of the extension in a STAC Collection
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
 
@@ -20,34 +23,8 @@ This is the place to add a short introduction.
 
 | Field Name           | Type                      | Description |
 | -------------------- | ------------------------- | ----------- |
-| template:new_field   | string                    | **REQUIRED**. Describe the required field... |
-| template:xyz         | [XYZ Object](#xyz-object) | Describe the field... |
-| template:another_one | \[number]                 | Describe the field... |
-
-### Additional Field Information
-
-#### template:new_field
-
-This is a much more detailed description of the field `template:new_field`...
-
-### XYZ Object
-
-This is the introduction for the purpose and the content of the XYZ Object...
-
-| Field Name  | Type   | Description |
-| ----------- | ------ | ----------- |
-| x           | number | **REQUIRED**. Describe the required field... |
-| y           | number | **REQUIRED**. Describe the required field... |
-| z           | number | **REQUIRED**. Describe the required field... |
-
-## Relation types
-
-The following types should be used as applicable `rel` types in the
-[Link Object](https://github.com/radiantearth/stac-spec/tree/master/item-spec/item-spec.md#link-object).
-
-| Type                | Description |
-| ------------------- | ----------- |
-| fancy-rel-type      | This link points to a fancy resource. |
+| anon:size            | number                    | **REQUIRED**. The size of one side of the anonymized bounding box in degrees. For example, if this value is set to 2 then the bounding box for the items should be 2 degrees latitude by 2 degrees longitude. |
+| anon:warning         | string                    | **REQUIRED**. A brief warning that the geometry of the item is not accurate and a description of how it has been anonymized. |
 
 ## Contributing
 
