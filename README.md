@@ -4,7 +4,7 @@
 - **Identifier:** <https://stac-extensions.github.io/anonymized-location/v1.0.0/schema.json>
 - **Field Name Prefix:** anon
 - **Scope:** Item, Collection
-- **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Proposal
+- **Extension [Maturity Classification](https://github.com/radiantearth/stac-spec/tree/master/extensions/README.md#extension-maturity):** Pilot
 - **Owner**: @kbgg @duckontheweb
 
 This document explains the Anonymized Location Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
